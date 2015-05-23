@@ -23,11 +23,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Iterator;
+import java.util.Optional;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonGenerator.Feature;
-import com.google.common.base.Optional;
 
 /**
  * The calling application has to separately close the underlying {@link OutputStream} and {@link Writer} instances used to create the serializer.

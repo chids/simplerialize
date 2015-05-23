@@ -23,9 +23,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.util.Iterator;
+import java.util.Optional;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.common.base.Optional;
 
 /**
  * The interface for all concrete {@link Serializer} implementations.

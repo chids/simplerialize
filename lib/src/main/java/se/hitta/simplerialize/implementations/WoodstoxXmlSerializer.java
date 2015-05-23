@@ -15,21 +15,21 @@
  */
 package se.hitta.simplerialize.implementations;
 
+import se.hitta.simplerialize.AdapterMapper;
+import se.hitta.simplerialize.Serializer;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Iterator;
+import java.util.Optional;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import se.hitta.simplerialize.AdapterMapper;
-import se.hitta.simplerialize.Serializer;
-
 import com.ctc.wstx.api.WstxOutputProperties;
-import com.google.common.base.Optional;
 
 /**
  *

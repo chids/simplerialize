@@ -1,31 +1,24 @@
 package se.hitta.simplerialize.structures;
 
-import com.google.common.collect.ImmutableList;
+import static java.util.Arrays.asList;
+
 import se.hitta.simplerialize.AbstractSerializationTest;
 import se.hitta.simplerialize.SerializationCapable;
 import se.hitta.simplerialize.Serializer;
 
 import java.io.IOException;
+import java.util.List;
 
 public final class NestedListOfObjects extends AbstractSerializationTest {
     @Override
     public void write(final Serializer serializer) throws IOException {
-        final Iterable<?> iterable =
-                ImmutableList.of(
-                        ImmutableList.of(
-                                ImmutableList.of(
-                                        ImmutableList.of(
-                                                ImmutableList.of(
-                                                        ComplexObject.of(0),
-                                                        ComplexObject.of(1),
-                                                        ComplexObject.of(2),
-                                                        ComplexObject.of(3),
-                                                        ComplexObject.of(4)
-                                                )
-                                        )
-                                )
-                        )
-                );
+        final List<ComplexObject> objects = asList(
+                ComplexObject.of(0),
+                ComplexObject.of(1),
+                ComplexObject.of(2),
+                ComplexObject.of(3),
+                ComplexObject.of(4));
+        final Iterable<?> iterable = asList(asList(asList(asList(objects))));
         serializer.startContainer("container");
         serializer.eachNestedComplex("item", iterable);
         serializer.endContainer();
@@ -33,7 +26,7 @@ public final class NestedListOfObjects extends AbstractSerializationTest {
 
     public static final class ComplexObject implements SerializationCapable {
 
-        public static final ComplexObject of(int i) {
+        public static final ComplexObject of(final int i) {
             return new ComplexObject(i);
         }
 

@@ -3,10 +3,9 @@ package se.hitta.simplerialize;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.junit.Test;
-
-import com.google.common.base.Optional;
 
 /**
  * This was one of the first proof of concept tests written to simply see if
@@ -39,7 +38,7 @@ public class TheUglyButAlmightAdHocTest
             serializer.startContainer("yeah");
             {
                 serializer.writeNameValue("def", Optional.of("howdY"));
-                serializer.writeNameValue("unk", Optional.absent());
+                serializer.writeNameValue("unk", Optional.empty());
                 serializer.writeNameValue("str", this.str);
                 serializer.writeNameValue("bool", this.bool);
                 serializer.startContainer("nested");

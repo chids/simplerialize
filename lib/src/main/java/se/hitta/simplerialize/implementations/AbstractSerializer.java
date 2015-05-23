@@ -20,9 +20,9 @@ import se.hitta.simplerialize.Serializer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Optional;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.common.base.Optional;
 
 abstract class AbstractSerializer implements Serializer
 {
