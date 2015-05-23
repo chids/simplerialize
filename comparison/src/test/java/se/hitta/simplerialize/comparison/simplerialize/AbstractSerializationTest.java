@@ -13,7 +13,7 @@ import se.hitta.simplerialize.implementations.WoodstoxXmlSerializer;
 
 public abstract class AbstractSerializationTest extends AbstractTest
 {
-    public final SampleObject createRoot()
+    public final static SampleObject createRoot()
     {
         final Map<String, String> attributes = new HashMap<String, String>();
         attributes.put("one", "1");
@@ -27,14 +27,16 @@ public abstract class AbstractSerializationTest extends AbstractTest
     @Override
     public void serializeXmlTo(final Writer writer) throws Exception
     {
-        final Serializer serializer = new WoodstoxXmlSerializer(writer, getMapper());
-        serializer.start().writeWithAdapter(createRoot()).close();
+        try(Serializer serializer = new WoodstoxXmlSerializer(writer, getMapper())) {
+            serializer.start().writeWithAdapter(createRoot()).close();
+        }
     }
 
     @Override
     public void serializeJsonTo(final Writer writer) throws Exception
     {
-        final Serializer serializer = new JacksonJsonSerializer(writer, getMapper());
-        serializer.start().writeWithAdapter(createRoot()).close();
+        try(Serializer serializer = new JacksonJsonSerializer(writer, getMapper())) {
+            serializer.start().writeWithAdapter(createRoot()).close();
+        }
     }
 }

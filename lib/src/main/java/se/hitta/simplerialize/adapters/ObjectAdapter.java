@@ -33,6 +33,7 @@ public final class ObjectAdapter implements SerializationAdapter<Object>
      * @see se.hitta.simplerialize.SerializationAdapter#write(java.lang.Object, se.hitta.simplerialize.Serializer)
      */
     @Override
+    @SuppressWarnings("deprecation")
     public void write(final Object target, final Serializer serializer) throws IOException
     {
         if(target != null)

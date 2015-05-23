@@ -10,8 +10,7 @@ import java.io.IOException;
 public final class NestedListOfObjects extends AbstractSerializationTest {
     @Override
     public void write(final Serializer serializer) throws IOException {
-
-        final Iterable iterable =
+        final Iterable<?> iterable =
                 ImmutableList.of(
                         ImmutableList.of(
                                 ImmutableList.of(
@@ -27,7 +26,6 @@ public final class NestedListOfObjects extends AbstractSerializationTest {
                                 )
                         )
                 );
-
         serializer.startContainer("container");
         serializer.eachNestedComplex("item", iterable);
         serializer.endContainer();
@@ -50,5 +48,4 @@ public final class NestedListOfObjects extends AbstractSerializationTest {
             serializer.writeNameValue("number", this.number);
         }
     }
-
 }

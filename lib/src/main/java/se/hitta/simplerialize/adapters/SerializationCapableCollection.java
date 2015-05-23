@@ -37,8 +37,8 @@ public class SerializationCapableCollection<T> implements SerializationCapable {
     @Override
     public void write(final Serializer serializer) throws IOException {
         serializer.startContainer(this.typeName + "s");
-        serializer.writeNameValue("included", collection.size());
-        serializer.eachComplex(typeName, collection);
+        serializer.writeNameValue("included", this.collection.size());
+        serializer.eachComplex(this.typeName, this.collection);
         serializer.endContainer();
     }
 }

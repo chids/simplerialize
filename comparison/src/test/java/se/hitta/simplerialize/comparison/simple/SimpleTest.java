@@ -19,7 +19,7 @@ public final class SimpleTest extends AbstractTest
         serializer.write(createRoot(), writer);
     }
 
-    private SampleObject createRoot()
+    private static SampleObject createRoot()
     {
         final Map<String, String> attributes = new HashMap<String, String>();
         attributes.put("one", "1");

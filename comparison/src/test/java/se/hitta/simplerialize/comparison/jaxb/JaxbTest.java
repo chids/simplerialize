@@ -27,7 +27,7 @@ public final class JaxbTest extends AbstractTest
         marshaller.marshal(createRoot(), writer);
     }
 
-    private SampleObject createRoot()
+    private static SampleObject createRoot()
     {
         final Map<String, String> attributes = new HashMap<String, String>();
         attributes.put("one", "1");
@@ -37,6 +37,7 @@ public final class JaxbTest extends AbstractTest
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void serializeJsonTo(final Writer writer) throws Exception
     {
         final ObjectMapper mapper = new ObjectMapper();

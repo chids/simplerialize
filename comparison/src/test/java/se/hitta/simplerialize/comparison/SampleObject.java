@@ -37,6 +37,7 @@ public final class SampleObject implements SerializationCapable
     }
 
     // JAXB
+    @SuppressWarnings("unused")
     private SampleObject()
     {
         this.attributes = new HashMap<String, String>();

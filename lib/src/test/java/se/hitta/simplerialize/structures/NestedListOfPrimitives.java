@@ -9,8 +9,7 @@ import java.io.IOException;
 public final class NestedListOfPrimitives extends AbstractSerializationTest {
     @Override
     public void write(final Serializer serializer) throws IOException {
-
-        final Iterable iterable =
+        final Iterable<?> iterable =
                 ImmutableList.of(
                         ImmutableList.of(
                                 ImmutableList.of(

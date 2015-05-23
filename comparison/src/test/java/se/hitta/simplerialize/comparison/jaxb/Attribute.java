@@ -20,6 +20,7 @@ public class Attribute
     }
 
     // JAXB cruft
+    @SuppressWarnings("unused")
     private Attribute()
     {
         this.name = this.value = null;

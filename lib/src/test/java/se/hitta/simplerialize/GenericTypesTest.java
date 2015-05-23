@@ -21,10 +21,8 @@ public class GenericTypesTest
     @Test
     public void canRegisterAdapterForGenericType()
     {
-        AdapterMapper mapper = new DefaultAdapterMapper();
-
+        final AdapterMapper mapper = new DefaultAdapterMapper();
         mapper.register(new StringCollectionAdapter(), new TypeReference<Collection<String>>(){});
-
         SerializationAdapter<Collection<String>> adapter = mapper.resolveAdapter(new TypeReference<Collection<String>>(){});
         assertNotNull(adapter);
     }
@@ -32,37 +30,27 @@ public class GenericTypesTest
     @Test(expected=IllegalStateException.class)
     public void requestForUnregisteredGenericTypeShouldThrowException()
     {
-        AdapterMapper mapper = new DefaultAdapterMapper();
-
+        final AdapterMapper mapper = new DefaultAdapterMapper();
         mapper.register(new StringCollectionAdapter(), new TypeReference<Collection<String>>(){});
-
-        SerializationAdapter<Collection<Double>> adapter = mapper.resolveAdapter(new TypeReference<Collection<Double>>(){});
+        mapper.resolveAdapter(new TypeReference<Collection<Double>>(){});
     }
 
     @Test
     public void canSerializeUsingAdapterForGenericType() throws IOException
     {
-        String expected = "{\"strings\":{\"string\":[\"nisse\",\"kalle\",\"åsa\"]}}";
-
+        final String expected = "{\"strings\":{\"string\":[\"nisse\",\"kalle\",\"åsa\"]}}";
         Collection<String> strings = new ArrayList<String>();
         strings.add("nisse");
         strings.add("kalle");
         strings.add("åsa");
-
-        AdapterMapper mapper = new DefaultAdapterMapper();
-
+        final AdapterMapper mapper = new DefaultAdapterMapper();
         mapper.register(new StringCollectionAdapter(), new TypeReference<Collection<String>>(){});
-
-        Writer stringwriWriter = new StringWriter();
-
-        Serializer serializer = new JacksonJsonSerializer(stringwriWriter, mapper);
-
+        final Writer stringwriWriter = new StringWriter();
+        final Serializer serializer = new JacksonJsonSerializer(stringwriWriter, mapper);
         serializer.start();
         serializer.writeWithAdapter(strings, new TypeReference<Collection<String>>(){});
         serializer.close();
-
         assertEquals(expected, stringwriWriter.toString());
-
     }
 
     public static class StringCollectionAdapter implements SerializationAdapter<Collection<String>>
@@ -77,7 +65,5 @@ public class GenericTypesTest
             }
             serializer.endContainer();
         }
-
     }
-
 }

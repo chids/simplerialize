@@ -29,7 +29,7 @@ public final class XStreamTest extends AbstractTest
         xstream.toXML(createRoot(), writer);
     }
 
-    private SampleObject createRoot()
+    private static SampleObject createRoot()
     {
         final Map<String, String> attributes = new HashMap<String, String>();
         attributes.put("one", "1");

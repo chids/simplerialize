@@ -260,6 +260,7 @@ public final class WoodstoxXmlSerializer extends AbstractSerializer
      */
     @Override
     @Deprecated
+    @SuppressWarnings("deprecation")
     public Serializer writeObject(final Object target) throws IOException
     {
         try
@@ -365,9 +366,9 @@ public final class WoodstoxXmlSerializer extends AbstractSerializer
                 while(elements.hasNext())
                 {
                     final Object next = elements.next();
-                    if (next instanceof Iterable)
+                    if (next instanceof Iterable<?>)
                     {
-                        eachNestedPrimitive("values", (Iterable) next);
+                        eachNestedPrimitive("values", (Iterable<?>) next);
                     }
                     else
                     {
@@ -400,10 +401,10 @@ public final class WoodstoxXmlSerializer extends AbstractSerializer
                 while(elements.hasNext())
                 {
                     final Object next = elements.next();
-                    if (next instanceof Iterable)
+                    if (next instanceof Iterable<?>)
                     {
                         this.generator.writeStartElement("values");
-                        eachNestedComplex(container, (Iterable) next);
+                        eachNestedComplex(container, (Iterable<?>) next);
                         this.generator.writeEndElement();
                     }
                     else

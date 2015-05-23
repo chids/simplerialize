@@ -54,6 +54,7 @@ public final class JacksonJsonSerializer extends AbstractSerializer
      * @param mapper
      * @throws IOException
      */
+    @SuppressWarnings("deprecation")
     public JacksonJsonSerializer(final Writer writer, final AdapterMapper mapper) throws IOException
     {
         super(writer, mapper);
@@ -198,6 +199,7 @@ public final class JacksonJsonSerializer extends AbstractSerializer
      */
     @Override
     @Deprecated
+    @SuppressWarnings("deprecation")
     public Serializer writeObject(final Object target) throws IOException
     {
         this.generator.writeObject(target);
