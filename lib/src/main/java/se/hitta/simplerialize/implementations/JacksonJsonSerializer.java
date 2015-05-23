@@ -15,19 +15,18 @@
  */
 package se.hitta.simplerialize.implementations;
 
+import se.hitta.simplerialize.AdapterMapper;
+import se.hitta.simplerialize.Serializer;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Iterator;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonGenerator.Feature;
-
-import se.hitta.simplerialize.AdapterMapper;
-import se.hitta.simplerialize.Serializer;
-
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonGenerator.Feature;
 import com.google.common.base.Optional;
 
 /**

@@ -1,5 +1,8 @@
 package se.hitta.simplerialize.comparison.jaxb;
 
+import se.hitta.simplerialize.comparison.AbstractTest;
+import se.hitta.simplerialize.comparison.SampleObject;
+
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,12 +10,9 @@ import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
-import org.codehaus.jackson.map.AnnotationIntrospector;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.xc.JaxbAnnotationIntrospector;
-
-import se.hitta.simplerialize.comparison.AbstractTest;
-import se.hitta.simplerialize.comparison.SampleObject;
+import com.fasterxml.jackson.databind.AnnotationIntrospector;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 public final class JaxbTest extends AbstractTest
 {
@@ -41,7 +41,7 @@ public final class JaxbTest extends AbstractTest
     {
         final ObjectMapper mapper = new ObjectMapper();
         final AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-        mapper.getSerializationConfig().setAnnotationIntrospector(introspector);
+        mapper.getSerializationConfig().withAppendedAnnotationIntrospector(introspector);
         mapper.writeValue(writer, createRoot());
     }
 }

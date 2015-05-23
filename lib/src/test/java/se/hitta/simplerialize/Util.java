@@ -2,22 +2,23 @@ package se.hitta.simplerialize;
 
 import static org.junit.Assert.fail;
 
+import se.hitta.simplerialize.adapters.DefaultAdapterMapper;
+import se.hitta.simplerialize.implementations.CompositeSerializer;
+import se.hitta.simplerialize.implementations.JacksonJsonSerializer;
+import se.hitta.simplerialize.implementations.WoodstoxXmlSerializer;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.Writer;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.custommonkey.xmlunit.Diff;
 import org.xml.sax.SAXException;
 
-import se.hitta.simplerialize.adapters.DefaultAdapterMapper;
-import se.hitta.simplerialize.implementations.CompositeSerializer;
-import se.hitta.simplerialize.implementations.JacksonJsonSerializer;
-import se.hitta.simplerialize.implementations.WoodstoxXmlSerializer;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class Util
 {

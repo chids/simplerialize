@@ -3,17 +3,18 @@ package se.hitta.simplerialize;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import se.hitta.simplerialize.adapters.DefaultAdapterMapper;
+import se.hitta.simplerialize.implementations.JacksonJsonSerializer;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.codehaus.jackson.type.TypeReference;
 import org.junit.Test;
 
-import se.hitta.simplerialize.adapters.DefaultAdapterMapper;
-import se.hitta.simplerialize.implementations.JacksonJsonSerializer;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 public class GenericTypesTest
 {

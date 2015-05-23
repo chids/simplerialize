@@ -15,6 +15,10 @@
  */
 package se.hitta.simplerialize.adapters;
 
+import se.hitta.simplerialize.AdapterMapper;
+import se.hitta.simplerialize.SerializationAdapter;
+import se.hitta.simplerialize.SerializationCapable;
+
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
@@ -24,13 +28,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.codehaus.jackson.type.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import se.hitta.simplerialize.AdapterMapper;
-import se.hitta.simplerialize.SerializationAdapter;
-import se.hitta.simplerialize.SerializationCapable;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 /**
  * The default {@link AdapterMapper} implementation. The client may provide the

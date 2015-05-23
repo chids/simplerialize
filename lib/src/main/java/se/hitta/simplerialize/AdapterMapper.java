@@ -15,9 +15,9 @@
  */
 package se.hitta.simplerialize;
 
-import org.codehaus.jackson.type.TypeReference;
-
 import se.hitta.simplerialize.adapters.NullAdapter;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 /**
  * An {@link AdapterMapper} maps {@link Class} objects to

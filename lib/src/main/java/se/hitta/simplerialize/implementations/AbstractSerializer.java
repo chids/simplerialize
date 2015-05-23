@@ -15,14 +15,13 @@
  */
 package se.hitta.simplerialize.implementations;
 
-import java.io.IOException;
-import java.io.Writer;
-
-import org.codehaus.jackson.type.TypeReference;
-
 import se.hitta.simplerialize.AdapterMapper;
 import se.hitta.simplerialize.Serializer;
 
+import java.io.IOException;
+import java.io.Writer;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.base.Optional;
 
 abstract class AbstractSerializer implements Serializer
