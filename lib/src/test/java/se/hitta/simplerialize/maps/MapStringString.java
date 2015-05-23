@@ -1,11 +1,11 @@
 package se.hitta.simplerialize.maps;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import se.hitta.simplerialize.AbstractSerializationTest;
 import se.hitta.simplerialize.Serializer;
+
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public final class MapStringString extends AbstractSerializationTest
 {
@@ -13,10 +13,10 @@ public final class MapStringString extends AbstractSerializationTest
     
     static
     {
-        map = new HashMap<String, String>();
+        map = new LinkedHashMap<String, String>();
+        map.put("yin", "yang");
         map.put("foo", "bar");
         map.put("x", "y");
-        map.put("yin", "yang");
     }
 
     @Override
